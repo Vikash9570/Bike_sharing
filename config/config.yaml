@@ -1,0 +1,16 @@
+
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_url: https://github.com/Vikash9570/Data/raw/main/bike_sharing%20(1).csv
+  local_data_files: artifacts/data_ingestion/data.csv
+  train_data_path: artifacts/data_ingestion/train_data.csv
+  test_data_path: artifacts/data_ingestion/test_data.csv
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  local_data_path: artifacts/data_ingestion/data.csv
+  train_data_path: artifacts/data_ingestion/train_data.csv
+  test_data_path: artifacts/data_ingestion/test_data.csv
