@@ -31,8 +31,8 @@ class DataIngestion:
             raw_data=pd.read_csv(raw_data)
             train_set,test_set=train_test_split(raw_data,test_size=0.30,random_state=42)
 
-            train_set.to_csv(self.config.train_data_path)
-            test_set.to_csv(self.config.test_data_path)
+            train_set.to_csv(self.config.train_data_path, index= False)
+            test_set.to_csv(self.config.test_data_path, index= False)
 
             logging.info('data split done successfull')
         except Exception as e:

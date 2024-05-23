@@ -13,6 +13,22 @@ class DataIngestionConfig:
 @dataclass(frozen=True)
 class DataTransformationConfig:
     root_dir: Path
-    data_path: Path
+    local_data_path: Path
     train_data_path: Path
     test_data_path: Path
+    pickel_file_path: str
+    train_arr_path: Path
+    test_arr_path: Path
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    pickel_file_path: str
+    train_arr_path: str
+    test_arr_path: str
+
+
+@dataclass(frozen=True)
+class ModelPredictionConfig:
+    model_pickel_file_path: str
+    preprocessor_pickel_file_path: str
