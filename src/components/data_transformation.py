@@ -18,17 +18,6 @@ class DataTransformation:
     def __init__(self,config: DataTransformationConfig):
         self.config = config
 
-    # def convert_to_datetime(self):
-    #     if "train" in str(self.config.train_data_path):
-    #         train_data_path=self.config.train_data_path
-    #         train_data_frame=pd.read_csv(train_data_path)
-    #         train_data_frame["Date"]= pd.to_datetime(train_data_frame["Date"])
-    #         return train_data_frame["Date"]
-    #     else:
-    #         test_data_path=self.config.test_data_path
-    #         test_data_frame=pd.read_csv(test_data_path)
-    #         test_data_frame["Date"]= pd.to_datetime(test_data_frame["Date"])
-    #         return test_data_frame["Date"]
 
     def get_data_transformation_obj(self):
         categorical_col=["Seasons","Holiday","Functioning Day"]
@@ -41,19 +30,14 @@ class DataTransformation:
         holiday_cat=["Holiday","No Holiday"]
 
         functioning_cat=["Yes","No"]
-        # date_cat=["Day","Month","Year",]
-        # date column transformation
-        
-        # date_transformer=FunctionTransformer(self.convert_to_datetime(Date_col))
 
-        # numerical transformation pipeline
         num_pipeline=Pipeline(
                 steps=[
                     ("imputer",SimpleImputer(strategy="median")),
                     ("scaler",StandardScaler())
                 ]
         ) 
-        # catogerical transformationn pipeline
+
         cat_pipeline = Pipeline(
         steps=[
             ("onehotencoder", OneHotEncoder(categories=[seasons_cat, holiday_cat, functioning_cat])),

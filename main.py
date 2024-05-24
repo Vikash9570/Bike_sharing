@@ -44,7 +44,7 @@ STAGE_NAME="Prediction pipeline"
 try:
     logging.info(f">> stage {STAGE_NAME} started")
     model_prediction = PredictionPipeline()
-    custom_data_obj=CustomData(12,32,32,32,32,"Summer","Holiday","Yes", 2,3,2024)
+    custom_data_obj=CustomData()
     custom_data=custom_data_obj.get_data_as_dataframe()
     prediction=int(model_prediction.predict(custom_data))
     print(prediction)
